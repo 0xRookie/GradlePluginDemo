@@ -1,0 +1,7 @@
+include ':app'
+rootProject.name = "GradlePluginDemo"
+
+include ':lib_launcher_register'
+include ':lib_launcher_api'
+include ':lib_launcher_annotation'
+include ':lib_launcher_compiler'

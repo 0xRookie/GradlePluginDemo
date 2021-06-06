@@ -1,0 +1,27 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+}
+
+dependencies {
+    implementation 'com.android.tools.build:gradle:3.6.4'
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //设置插件的GAV参数
+            pom.groupId = 'me.rookie.plugin'//你的包名
+            pom.artifactId = 'LauncherPlugin'
+            pom.version = '1.0.0'//版本号
+            //文件发布到下面目录  ../是父目录
+            repository(url: uri(rootProject.ext.localRepoURL))
+        }
+    }
+}
